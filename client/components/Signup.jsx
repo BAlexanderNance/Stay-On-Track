@@ -32,6 +32,7 @@ const Signup = (props) => {
         <button id="signupButton" onClick={handleSignup}>
           SIGNUP
         </button>
+        <button className="switchtogglebutton" onClick={() => props.switchToggle(false)} >Switch to Login</button>
       </div>
     </div>
   );
