@@ -1,5 +1,6 @@
 import React from 'react';
-import ComponentCard from './ComponentCard.jsx'
+import ComponentCard from './ComponentCard.jsx';
+import ComponentPage from './ComponentPage.jsx';
 
 
 const MainBody = (props) => {
@@ -12,8 +13,8 @@ const MainBody = (props) => {
 
 
   return (
-    <div>
-      {componentCards}
+    <div className="MainBody">
+      {props.cardsOrPage === 'cards' ? componentCards : <ComponentPage />}
     </div>
   )
 };
