@@ -14,7 +14,7 @@ const [cardsOrPage, setCardsOrPage] = useState('cards')
     <div className="grid-container">
     <div id="mainheader">
       <div id="headerlogodiv" ><img id='headerlogo' src='./stayontrackwhite.png' alt='STAYONTRACK' /></div>
-      <div id="headerResumeNumberdiv" ><div id='headerResumeNumber' >20</div></div>
+      <div id="headerResumeNumberdiv" ><div id='headerResumeNumber'>{20}</div></div>
       <div id="headeralertsdiv" ><img id='headeralerts' src='./redalarmbell.png' /></div>
       <div id="headerbluemandiv" ><img id='headerblueman' src='./usernobeltmancopy.png' /></div>
     </div>
