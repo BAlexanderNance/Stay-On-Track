@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = () => {
+const Login = (props) => {
   const loginner = () => {
     const username = document.querySelector('#loginUsername').value;
     const password = document.querySelector('#loginPassword').value;
@@ -12,18 +12,8 @@ const Login = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log('result: ', result);
-          if (result !== undefined) {
-            window.location.replace('http://localhost:3000/protected');
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+      .then( (data) => data.json() )
+      .then( (parsed) => (console.log(parsed.result), props.switchLoggedIn(parsed.result)) );
   };
 
   return (
@@ -33,6 +23,7 @@ const Login = () => {
       <button id="loginButton" onClick={loginner}>
         LOGIN
       </button>
+      <button className="switchtogglebutton" onClick={()=>props.switchToggle(true)}>Switch to Login</button>
     </div>
   );
 };

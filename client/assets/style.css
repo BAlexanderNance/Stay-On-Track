@@ -150,7 +150,6 @@
 #headerlogodiv {
   grid-area: LOGO;
 }
-
 #headerlogo { 
   max-height: 100%;
   max-width: 100%;

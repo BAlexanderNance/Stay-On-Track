@@ -21,6 +21,7 @@ authController.login = (req, res, next) => {
 
   // sending getPassQuery to the database
   db.query(getPassQuery)
+    .then(data=> (console.log(data.rows),data))
     // function will fire if a successful response is received
     .then((response) => {
       // will cross reference encrypted password from database with plain text password received from client
@@ -52,14 +53,8 @@ authController.login = (req, res, next) => {
     // function will fire upon any error
     .catch((err) => {
       // return error handler
-      return next({
-        // will log Database Error
-        log: 'Database error',
-        // update status to 403
-        status: 403,
-        // pitch message stating which middleware failed along with the error
-        message: { err: `authController.login, ${err.stack}` },
-      });
+      res.locals.result = false;
+      return next();
     });
 };
 

@@ -19,9 +19,9 @@ app.get('/', (req, res, next) =>
   res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'))
 );
 // when build is requested, respond with build file
-// app.use('/build', express.static(path.resolve(__dirname, '../build')));
+app.use('/build', express.static(path.resolve(__dirname, '../build')));
 // make client folder available for use within the app
-// app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, '../client/assets')));
 
 if (process.env.NODE_ENV === 'production') {
   // allows build to populate properly when called in index.html
